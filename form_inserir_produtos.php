@@ -16,15 +16,21 @@
         <label for="preco">Preço:</label>
         <input type="text" value="preco"><br><br>
 
-        <!--<select name="exibir_categorias" id="">-->
+   
             <?php
-                $pdo = new PDO("sqlite:estoque.db");
-                $query_select_categorias = "SELECT * FROM categorias";
-                $categorias = $pdo->query($query_select_categorias);
-                foreach ($categorias as $categoria){
-                    echo $categoria["nome"]."<br>";
-                }
+                    <form action="form_inserir_produtos.php">
+                <select name="exibir_categorias">
 
+                
+                    $pdo = new PDO("sqlite:estoque.db");
+                    $query_select_categorias = "SELECT * FROM categorias";
+                    $categorias = $pdo->query($query_select_categorias);
+                    foreach ($categorias as $categoria){
+                        echo "<option value=\"".$categoria["id"]."\">.$categoria["nome"]."</option>";"
+                }
+                    </form>
+                </select>
+                <button type="submit">Enviar</button>
             ?>
             <option value=""></option>
        <!--</select>-->
