@@ -7,14 +7,29 @@
 </head>
 <body>
     <?php
-        $pdo = new PDO("squlite:estoque.db");
+        $pdo = new PDO("sqlite:estoque.db");
         $queryCategorias ="SELECT * FROM categorias";
 
-        $vetorCategorias = $pdo->query($queryCategorias);
+        $categorias = $pdo->query($queryCategorias);
 
-        foreach($cayegorias as $categoria){
-            echo $categoria["nome"]."<br>";
+        echo"<table border=2>";
+        echo"<tr>";
+        echo"<th>id</th>";
+        echo"<th>nome</th>";
+        echo"<tr>";
+        
+
+        foreach($categorias as $categoria){
+            echo"<td>".$categoria["id"]."</td>";
+            echo"<tr>".$categoria["nome"]."</tr>";
+
+            foreach($categorias as $categoria){
+                echo"<td>".$categoria["id"]."</td>";
+                echo"<tr>".$categoria["nome"]."</tr>";
+    
+            }
         }
+        echo"</table>";
     ?>
 </body>
 </html>
